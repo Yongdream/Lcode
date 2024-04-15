@@ -4,6 +4,10 @@
         "array": "cpp",
         "initializer_list": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp",
+        "sstream": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     }
 }
