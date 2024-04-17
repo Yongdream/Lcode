@@ -8,26 +8,43 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        if(strs.empty()) return "";
-        string ans = strs[0];
-        int ansNum = -1;
-        for (int i = 0; i < strs.size(); i++){       // 几个字符串
-            ansNum = -1;
-            int minLen = min(ans.length(), strs[i].length()); 
-            for (int j = 0; j < minLen; j++){       // 判断前缀
-                if (strs[i][j] != ans[j]) break;
-                ansNum = j;
+        if (strs.empty()) {
+        return "";
+    }
+
+    // 找出数组中最短的字符串
+    size_t min_length = std::min_element(strs.begin(), strs.end(),
+                                       [](const std::string& a, const std::string& b) {
+                                           return a.size() < b.size();
+                                       })->size();
+
+    // 初始化最长公共前缀为空字符串
+    std::string lcp;
+
+    // 遍历最短字符串的每个字符
+    for (size_t i = 0; i < min_length; ++i) {
+        char current_char = strs[0][i];
+
+        // 检查所有字符串的当前位置字符是否相同
+        bool all_same = true;
+        for (const auto& s : strs) {
+            if (s[i] != current_char) {
+                all_same = false;
+                break;
             }
         }
-        ans = ans.substr(0, ansNum+1);
-        if (ansNum == -1){
-                return "";
+
+        // 如果相同，将其添加到最长公共前缀中
+        if (all_same) {
+            lcp += current_char;
+        } else {
+            // 如果不同，跳出循环，返回当前的最长公共前缀
+            break;
         }
-        else{
-                return ans;
-        }
-       
     }
+
+    return lcp;
+}
 };
 // @lc code=end
 

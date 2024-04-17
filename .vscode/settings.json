@@ -8,6 +8,8 @@
         "string": "cpp",
         "sstream": "cpp",
         "random": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "deque": "cpp",
+        "functional": "cpp"
     }
 }
