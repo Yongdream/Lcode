@@ -11,5 +11,28 @@
         "limits": "cpp",
         "deque": "cpp",
         "functional": "cpp"
-    }
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+            "comments": "on"
+        }
+    },
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "[cpp]": {
+
+        "editor.quickSuggestions": {
+
+            "comments": "on",
+
+            "strings": "on",
+
+            "other": "on"
+
+        }
+
+    },
+    "editor.inlineSuggest.suppressSuggestions": false
 }
