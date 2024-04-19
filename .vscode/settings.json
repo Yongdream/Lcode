@@ -11,7 +11,9 @@
         "limits": "cpp",
         "deque": "cpp",
         "functional": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "unordered_map": "cpp",
+        "algorithm": "cpp"
     },
     "[json]": {
         "editor.quickSuggestions": {
