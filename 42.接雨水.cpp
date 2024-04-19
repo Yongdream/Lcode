@@ -9,22 +9,20 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         if (height.size() < 3) return 0; 
-        int n = height.size();
-        int l = 0;
-        int r = l + 2;
         int areaSum = 0;
+        int lMax = 0, rMax = 0;
+        int l = 0, r = height.size() - 1;
 
-        while (r < n-1)
+        while (l <= r)
         {
-            int area = 0;
-            if (height[l+1] < height[l] && height[r] > height[l+1] )
-            {
-                area = min(height[l], height[r]) - height[l+1];
-                cout << area << endl;
-                areaSum += area;
+            if(lMax > rMax){
+                rMax = max(rMax, height[r]);
+                areaSum += rMax - height[r--];
             }
-            l++;
-            r++;
+            else{
+                lMax = max(lMax, height[l]);
+                areaSum += lMax - height[l++];
+            }
         }
         return areaSum;
     }
