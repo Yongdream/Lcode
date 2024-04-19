@@ -10,7 +10,8 @@
         "random": "cpp",
         "limits": "cpp",
         "deque": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "ostream": "cpp"
     },
     "[json]": {
         "editor.quickSuggestions": {
