@@ -14,7 +14,6 @@ public:
         unordered_map<char, int> pCount;
         unordered_map<char, int> swinCount;
         int winLen = p.size();
-        int same = 0;
 
         for (char c : p){
             pCount[c]++;
@@ -22,6 +21,7 @@ public:
         }
 
         for (int right = 0; right < s.size(); ++right){
+            int  same = 1;
 
             if (right >= winLen){
                 swinCount[s[right-winLen]]--;
