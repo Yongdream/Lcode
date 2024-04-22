@@ -13,7 +13,8 @@
         "functional": "cpp",
         "ostream": "cpp",
         "unordered_map": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "*.tcc": "cpp"
     },
     "[json]": {
         "editor.quickSuggestions": {
