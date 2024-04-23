@@ -19,7 +19,7 @@ public:
                 win.pop_front();
             }
 
-            // 一种降序的思想
+            // 降序思想
             // 保证首位一定为最大的值
             while (!win.empty() && nums[i] >= nums[win.back()]){
                 win.pop_back();
