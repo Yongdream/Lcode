@@ -29,11 +29,6 @@ public:
             }
         }
 
-        //if (candidateCount > 2)
-        //{
-        //    return vector<int>();
-        //}
-
         for (int candidate : candidates)
         {
             if (countMap[candidate] > k) {
