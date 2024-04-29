@@ -10,51 +10,51 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         if (matrix.empty()) return {};
 
-        int rows = matrix.size();
-        int cols = matrix[0].size();
-        int countM = rows * cols;
-        int count = 0;
-
-        int left = 0, right = cols - 1, up = 0, down = rows - 1;
-
-        int i = 0;
-        int j = 0;
+        int m = matrix.size();
+        int n = matrix[0].size();
 
         int top = 0, bottom = m - 1, left = 0, right = n - 1;
-        int direction = 0;
+        int direction = 0;  // 方向 注意后面代码 方向如何选择
+
         vector<int> res;
 
-        //while (count <= countM) {
-        //    
-        //}
-        while (count <= countM)
-        {
-            while (j < right) {
-                res.push_back(matrix[i][j]);
-                j++;
-                count++;
+        while (top <= bottom && left <= right) {
+            // 向右
+            if (direction == 0)
+            {
+                for (int i = left; i <= right; ++i) {
+                    res.push_back(matrix[top][i]);
+                }
+                top++;
             }
-            right--;
-            while (i < down) {
-                res.push_back(matrix[i][j]);
-                i++;
-                count++;
+            // 向下
+            else if (direction == 1) {
+                for (int i = top; i <= bottom; i++)
+                {
+                    res.push_back(matrix[i][right]);
+                }
+                right--;
             }
-            down--;
-            while (j > left) {
-                res.push_back(matrix[i][j]);
-                j--;
-                count++;
+            // 向左
+            else if (direction == 2)
+            {
+                for (int i = right; i >= left ; --i)
+                {
+                    res.push_back(matrix[bottom][i]);
+                }
+                bottom--;
             }
-            left++;
-            while (i > up + 1) {
-                res.push_back(matrix[i][j]);
-                i--;
-                count++;
+            // 向上
+            else
+            {
+                for (int i = bottom; i >= top; i--)
+                {
+                    res.push_back(matrix[i][left]);
+                }
+                left++;
             }
-            up++;
+            direction = (direction + 1) % 4;
         }
-
         return res;
     }
 };
