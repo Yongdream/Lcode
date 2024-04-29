@@ -13,7 +13,16 @@ public:
 
         // boyer-moore算法
         // 坏字符规则（Bad Character Rule）和 好后缀规则（Good Suffix Rule）
-        // 
+        int count = 0;
+        int candidate = nums[0];
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+
+        return candidate;
     }
 };
 // @lc code=end
