@@ -53,7 +53,7 @@ public:
                 }
                 left++;
             }
-            direction = (direction + 1) % 4;
+            direction = (direction + 1) % 4; // 选择模式
         }
         return res;
     }
