@@ -22,21 +22,31 @@ private:
 public:
     int pathSum(TreeNode* root, int targetSum) {
         if (!root) return res_;
-        traversal(root, targetSum);
-        int temp_l = pathSum(root->left, targetSum);   // 递归 以每一个根节点为基础 也就不展示出回溯的过程
-        int temp_r = pathSum(root->right, targetSum);  // 递归
+        traversal(root, targetSum - root->val);   // 递归+回溯
+        if (root->left) pathSum(root->left, targetSum);
+        if (root->right) pathSum(root->right, targetSum);
         return res_;
     }
 
     void traversal(TreeNode* cur, long long count) {
-        if (!cur) return;   // 对 count 变量使用了 long long 类型，以确保在大数情况下不会发生溢出
-
-        count -= cur->val;
+        // 对 count 变量使用了 long long 类型，以确保在大数情况下不会发生溢出
+        if (!cur) return;   
         if (count == 0) res_++;
+        // cout << cur->val << ":" << count << endl;
 
-        traversal(cur->left, count);
-        traversal(cur->right, count);
-        
+        if (cur->left)
+        {
+            count -= cur->left->val;
+            // cout << cur->val << ":" << cur->left->val << endl;
+            traversal(cur->left, count);
+            count += cur->left->val;
+        } 
+        if (cur->right)
+        {
+            count -= cur->right->val;
+            traversal(cur->right, count);
+            count += cur->right->val;   
+        }  
     }
 };
 // @lc code=end
