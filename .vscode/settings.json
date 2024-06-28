@@ -14,7 +14,8 @@
         "ostream": "cpp",
         "unordered_map": "cpp",
         "algorithm": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "system_error": "cpp"
     },
     "[json]": {
         "editor.quickSuggestions": {
