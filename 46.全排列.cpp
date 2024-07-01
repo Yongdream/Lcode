@@ -11,8 +11,7 @@ public:
     vector<int> path;
     
     void backtracking (vector<int>& nums, vector<bool>& used){
-        if (path.size() == nums.size())
-        {
+        if (path.size() == nums.size()){
             res.push_back(path);
             return;
         }
@@ -22,8 +21,8 @@ public:
             used[i] = true;
             path.push_back(nums[i]);
             backtracking(nums, used);
-            path.pop_back();    // 回溯过程
-            used[i] = false;
+            path.pop_back();    
+            used[i] = false;    // 回溯过程
         }
     }
 
