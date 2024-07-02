@@ -12,28 +12,28 @@ public:
         // 遇见数字 加入栈
         // 遇到操作符 计算栈内数字
         stack<long long> st;
+        long long res;
 
-        for (int i = 0; i < tokens.size(); i++)
+        for (int i = 0; i < tokens.size(); ++i)
         {
-            if (tokens[i] == "+" || tokens[i] == "-" || tokens[i] == "*" || tokens[i] == "/")
-            {
+            if (tokens[i] == "+" || tokens[i] == "-" || tokens[i] == "*" || tokens[i] == "/" ){
+                // 所以符号没有入栈 栈维护的是待计算数字
                 long long num1 = st.top();
                 st.pop();
                 long long num2 = st.top();
                 st.pop();
-                if (tokens[i] == "+") st.push(num2 + num1); // push进理解
+                if (tokens[i] == "+") st.push(num1 + num2);
                 if (tokens[i] == "-") st.push(num2 - num1);
-                if (tokens[i] == "*") st.push(num2 * num1);
+                if (tokens[i] == "*") st.push(num1 * num2);
                 if (tokens[i] == "/") st.push(num2 / num1);
             }
-            else
-            {
-                st.push(stoll(tokens[i]));  // string转为 longlong类型
+            else{
+                st.push(stoll(tokens[i]));
             }
         }
-        int res = st.top();
-        st.pop();   // 其实不需要弹出
-        return res;
+        res = st.top();
+        st.pop();
+        return res;               
     }
 };
 // @lc code=end
