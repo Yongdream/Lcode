@@ -20,8 +20,7 @@ public:
 
         while (top <= bottom && left <= right) {
             // 向右
-            if (direction == 0)
-            {
+            if (direction == 0){
                 for (int i = left; i <= right; ++i) {
                     res.push_back(matrix[top][i]);
                 }
@@ -36,8 +35,7 @@ public:
                 right--;
             }
             // 向左
-            else if (direction == 2)
-            {
+            else if (direction == 2) {
                 for (int i = right; i >= left ; --i)
                 {
                     res.push_back(matrix[bottom][i]);
@@ -45,8 +43,7 @@ public:
                 bottom--;
             }
             // 向上
-            else
-            {
+            else{
                 for (int i = bottom; i >= top; i--)
                 {
                     res.push_back(matrix[i][left]);
