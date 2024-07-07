@@ -22,21 +22,22 @@ public:
             return head;
         }
 
-        ListNode* temp = new ListNode(-1, head);
-        ListNode* p1 = temp;
+        ListNode* dummy = new ListNode(-1); // 哑节点
+        dummy->next = head;
+
+        ListNode* p1 = dummy;
         ListNode* p2 = head;
-        while (p2 != nullptr && p2->next != nullptr) {
-            ListNode* t = p2->next->next;
+
+        while (p2 != nullptr && p2->next != nullptr)
+        {
+            ListNode* nnNode = p2->next->next;
             p1->next = p2->next;
             p2->next->next = p2;
-            p2->next = t;
+            p2->next = nnNode;
             p1 = p1->next->next;
             p2 = p2->next;
         }
-        return temp->next;
-
-
-
+        return dummy->next;        
     }
 };
 // @lc code=end

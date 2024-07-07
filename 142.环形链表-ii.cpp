@@ -16,13 +16,27 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        if (head == NULL) return head;
-        while (head)
+        if (head == nullptr) return nullptr;
+
+        /*快慢指针法*/
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while (fast != nullptr && fast->next != nullptr)
         {
-            if (!less<ListNode*>()(head, head->next)) {
-                return head->next;
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if (slow == fast){
+                ListNode *p1 = head, *p2 = fast; // 重新开始找
+                // 循环到相同的就是入环了
+                while (p1 != p2)
+                {
+                    p1 = p1->next;
+                    p2 = p2->next;
+                }
+                return p2;
             }
-            head = head->next;
         }
         return nullptr;
     }
