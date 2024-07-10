@@ -16,15 +16,16 @@ public:
 
         for (int i = 0; i < n-3; ++i)
         {
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // 去重
             for (int j = i+1; j < n - 2; ++j)
             {
                 if (j > i + 1 && nums[j] == nums[j - 1]) continue; // 去重
                 int left = j + 1, right = n - 1;    // 初始化左右指针
                 while (right > left)
                 {
-                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    long long sum = (long long)nums[i] + nums[j] + nums[left] + nums[right];
                     if (sum == target){
-                        cout << i << j << left << right << endl;
+                        // cout << i << j << left << right << endl;
                         res.push_back({nums[i], nums[j], nums[left++], nums[right--]});
                         // 去重
                         while (left < right && nums[left] == nums[left - 1]) ++left;
