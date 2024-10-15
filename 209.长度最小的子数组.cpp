@@ -8,24 +8,24 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int res = __INT_MAX__;
-        int sum =0;
-        int left = 0;
+        int res = INT_MAX;
+        int sum = 0;
+        int edge = 0;
         int len = 0;
 
-        for (int right = 0; right < nums.size(); ++right)
+        for (int i = 0; i < nums.size(); ++i)
         {
-            sum += nums[right];
+            sum += nums[i];
             while (sum >= target)
             {
-                len = right - left + 1;
+                len = i - edge + 1;
                 res = min(res, len);
-                sum -= nums[left];
-                left++;
+                sum -= nums[edge];
+                edge++;
             }
         }
 
-        return res == __INT_MAX__? 0 : res;
+        return res == INT_MAX? 0 : res;
     }
 };
 // @lc code=end

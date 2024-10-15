@@ -13,7 +13,7 @@ public:
 
         while (left <= right)
         {
-            int mid = left + (right - left) / 2;
+            int mid = left + (right-left) / 2;
             if (nums[mid] == target){
                 return mid;
             }

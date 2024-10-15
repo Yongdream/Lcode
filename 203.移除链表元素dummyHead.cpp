@@ -20,20 +20,12 @@ public:
     ListNode* removeElements(ListNode* head, int val) {
         // 头节点和非头节点的移除是有区别
         // 如果使用虚拟头节点 就可以用统一的删除方法 
+    
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
 
-        // 使用while持续移除      
-        while (head != NULL && head->val == val)
-        {
-            ListNode* temp = head;
-            head = head->next;
-            delete temp;
-        }
-
-        // 理解curr->是要被删除的node
-        // 前后节点都要考虑
-        ListNode* curr = head;
-        while (curr != NULL && curr->next != NULL)
-        {
+        ListNode* curr = dummyHead;
+        while(curr->next != NULL){
             if (curr->next->val == val){
                 ListNode* temp = curr->next;
                 curr->next = curr->next->next;
@@ -43,6 +35,8 @@ public:
                 curr = curr->next;
             }
         }
+        head = dummyHead->next;
+        delete dummyHead;
         return head;
     }
 };

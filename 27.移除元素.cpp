@@ -10,10 +10,11 @@ public:
     int removeElement(vector<int>& nums, int val) {
         int numSize = nums.size();
         int slow = 0;
-        for (int i = 0; i < numSize; ++i)   // i就是快指针
-        {
-            if (nums[i] != val){
-                nums[slow] = nums[i];
+
+        // 快慢指针
+        for (int fast = 0; fast < numSize; ++fast){
+            if (nums[fast] != val){
+                nums[slow] = nums[fast];
                 slow++;
             }
         }
